@@ -1,0 +1,50 @@
+{
+  "fill" : {
+    "automatic-gradient" : "srgb:1.00000,0.59937,0.18324,1.00000"
+  },
+  "groups" : [
+    {
+      "layers" : [
+        {
+          "fill" : {
+            "solid" : "srgb:0.98417,0.99585,1.00000,1.00000"
+          },
+          "image-name" : "27.circle.fill.png",
+          "name" : "27.circle.fill",
+          "position" : {
+            "scale" : 2.68,
+            "translation-in-points" : [
+              239.421875,
+              -261.71875
+            ]
+          }
+        },
+        {
+          "glass" : true,
+          "image-name" : "Uodate the reference image using the instruction.png",
+          "name" : "Uodate the reference image using the instruction",
+          "position" : {
+            "scale" : 0.67,
+            "translation-in-points" : [
+              5.684341886080802e-14,
+              -57.6953125
+            ]
+          }
+        }
+      ],
+      "shadow" : {
+        "kind" : "neutral",
+        "opacity" : 0.6
+      },
+      "translucency" : {
+        "enabled" : false,
+        "value" : 0.2
+      }
+    }
+  ],
+  "supported-platforms" : {
+    "squares" : [
+      "iOS"
+    ]
+  }
+}
