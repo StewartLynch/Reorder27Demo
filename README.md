@@ -1,6 +1,6 @@
 # Reordering Lists and Grids in os27
 
-![AppIcon128](Images/AppIcon128.png) This is the **Starter Project** for the video on rendering items in lists and grids in os27
+![AppIcon128](Images/AppIcon128.png) This is the **completed source code** for the video on rendering items in lists and grids in os27
 
 If you want to support my work, you can - </br>
 
