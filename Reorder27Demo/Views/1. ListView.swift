@@ -39,7 +39,6 @@ struct ListView: View {
 
 struct SportRow: View {
   let sport: Sport
-  var showsFavouriteIcon = true
   var body: some View {
     LabeledContent {
         Image(systemName: sport.isFavourite ? "checkmark.app" : "xmark.app")
