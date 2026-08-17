@@ -28,6 +28,10 @@ struct GridView: View {
                     ForEach(sports) { sport in
                         SportRow(sport: sport)
                     }
+                    .reorderable()
+                }
+                .reorderContainer(for: Sport.self) { difference in
+                    sports = Sport.reorder(difference, for: sports)
                 }
             }
             .padding()

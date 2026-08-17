@@ -23,7 +23,11 @@ struct ListView: View {
                 ForEach(sports) { sport in
                     SportRow(sport: sport)
                 }
+                .reorderable()
                 .listRowSeparator(.hidden)
+            }
+            .reorderContainer(for: Sport.self) { difference in
+                sports = Sport.reorder(difference, for: sports)
             }
             .listStyle(.plain)
             .navigationTitle("My Sports")
@@ -37,17 +41,5 @@ struct ListView: View {
 }
 
 
-struct SportRow: View {
-  let sport: Sport
-  var body: some View {
-    LabeledContent {
-        Image(systemName: sport.isFavourite ? "checkmark.app" : "xmark.app")
-    } label: {
-      Text(sport.name)
-    }
-    .foregroundStyle(.white)
-    .padding()
-    .background(sport.color, in: .rect(cornerRadius: 10))
-  }
-}
+
 

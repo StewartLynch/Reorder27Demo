@@ -32,9 +32,27 @@ struct ListViewSD: View {
                     .padding()
                     .background(sport.color, in: .rect(cornerRadius: 10))
                 }
+                .reorderable()
                 .listRowSeparator(.hidden)
             }
             .listStyle(.plain)
+            .reorderContainer(for: Sport2.self) { difference in
+                guard let sourceID = difference.sources.first,
+                      let sourceIndex = sports.firstIndex(where: {$0.id == sourceID}) else { return }
+                var reorderedSports = sports
+                let sourceSport = reorderedSports.remove(at: sourceIndex)
+                switch difference.destination.position {
+                case .before(let destinationID):
+                    guard let destinationIndex = reorderedSports.firstIndex(where: {$0.id == destinationID}) else { return }
+                    reorderedSports.insert(sourceSport, at: destinationIndex)
+                case .end:
+                    reorderedSports.append(sourceSport)
+                }
+                for (index, sport) in reorderedSports.enumerated() {
+                    sport.sortOrder = index
+                }
+                try? modelContext.save()
+            }
             .navigationTitle("My Sports")
             .toolbar {
                 if sports.isEmpty {

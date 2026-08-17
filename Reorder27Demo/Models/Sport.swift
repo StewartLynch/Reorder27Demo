@@ -32,6 +32,21 @@ struct Sport: Identifiable {
             .init(name: "Golf", color: .cyan, isFavourite: true)
         ]
     }
+    
+    static func reorder(_ difference: ReorderDifference<UUID, ReorderableSingleCollectionIdentifier>, for sports: [Sport]) -> [Sport] {
+        guard let sourceID = difference.sources.first,
+              let sourceIndex = sports.firstIndex(where: {$0.id == sourceID}) else { return sports }
+        var reorderedSports = sports
+        let sourceSport = reorderedSports.remove(at: sourceIndex)
+        switch difference.destination.position {
+        case .before(let destinationID):
+            guard let destinationIndex = reorderedSports.firstIndex(where: {$0.id == destinationID}) else { return sports  }
+            reorderedSports.insert(sourceSport, at: destinationIndex)
+        case .end:
+            reorderedSports.append(sourceSport)
+        }
+       return reorderedSports
+    }
 }
 
 struct SportSection: Identifiable {
